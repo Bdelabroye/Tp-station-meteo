@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_QtWidgetsApplication1.h"
+#include <BDD.h>
 
 class QtWidgetsApplication1 : public QMainWindow
 {
@@ -10,7 +11,7 @@ class QtWidgetsApplication1 : public QMainWindow
 public:
     QtWidgetsApplication1(QWidget *parent = nullptr);
     ~QtWidgetsApplication1();
-	friend void tempLoop(QtWidgetsApplication1* window);
+	friend bool tempLoop(QtWidgetsApplication1* window);
 
 private:
     Ui::QtWidgetsApplication1Class ui;
