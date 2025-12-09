@@ -13,13 +13,14 @@ QtWidgetsApplication1::QtWidgetsApplication1(QWidget *parent)
 QtWidgetsApplication1::~QtWidgetsApplication1()
 {}
 
+float a;
+float c;
+
 void tempLoop(QtWidgetsApplication1* window)
 {
 	K8055Adapter* carteES = K8055Adapter::getInstance();
 	carteES->OpenDevice(0);
-	float a;
-	float c;
-	// Opérations sur la carte (lectures / écritures)
+	// OpÃ©rations sur la carte (lectures / Ã©critures)
 
 		a = carteES->ReadAnalogChannel(0);
 		a = a / 255 * 5;
