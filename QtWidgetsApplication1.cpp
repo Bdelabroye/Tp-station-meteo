@@ -20,11 +20,16 @@ void tempLoop(QtWidgetsApplication1* window)
 {
 	K8055Adapter* carteES = K8055Adapter::getInstance();
 	carteES->OpenDevice(0);
-	// Opérations sur la carte (lectures / écritures)
 
+	if (carteES->OpenDevice(0)!=-1)
+	{
 		a = carteES->ReadAnalogChannel(0);
 		a = a / 255 * 5;
 		c = a * 18 - 30;
-		
-		window->ui.label_2->setText(QString::number(c) + " C");
+
+		window->ui.label->setText("Temperature : "+ (QString::number(c) +" °C" ));
+	}
+	else {
+		window->ui.label->setText("Carte non connectée");
+	}
 }

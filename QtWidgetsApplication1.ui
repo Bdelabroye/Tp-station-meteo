@@ -19,25 +19,12 @@
      <rect>
       <x>4</x>
       <y>20</y>
-      <width>71</width>
+      <width>281</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>Temparature : </string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>20</y>
-      <width>261</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>En attente ...</string>
     </property>
    </widget>
   </widget>
