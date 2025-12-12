@@ -8,7 +8,6 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     QtWidgetsApplication1 window;
     window.show();
-	//faire en boucle la fonction tempLoop
 	std::thread loopThread([&window]() {
 		while (true) {
 			tempLoop(&window);

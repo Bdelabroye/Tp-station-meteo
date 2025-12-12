@@ -56,3 +56,34 @@ void BDD::insertData(float temperature)
 		qDebug() << "Insert OK";
 	}
 }
+
+std::vector<std::pair<QDateTime, float>> BDD::getDataBetweenDates(QDateTime startDate, QDateTime endDate)
+{
+	// recuperer les donnees entre les deux dates
+	std::vector<std::pair<QDateTime, float>> data;
+	if (!QSqlDatabase::database().isOpen()) {
+		qDebug() << "Database not open";
+		return data;
+	}
+	QSqlQuery q;
+	q.prepare("SELECT timestamp, temperature FROM temperature_table "
+		"WHERE timestamp BETWEEN :startDate AND :endDate "
+		"ORDER BY timestamp ASC");
+	q.bindValue(":startDate", startDate);
+	q.bindValue(":endDate", endDate);
+	if (!q.exec()) {
+		qDebug() << "Select failed:";
+		return data;
+	}
+	while (q.next()) {
+		QDateTime timestamp = q.value(0).toDateTime();
+		float temperature = q.value(1).toFloat();
+		data.push_back(std::make_pair(timestamp, temperature));
+	}
+	//afficher les donnees recuperees 
+	qDebug() << "Data retrieved:";
+	for (const auto& entry : data) {
+		qDebug() << "Timestamp:" << entry.first.toString() << "Temperature:" << entry.second;
+	}
+	return data;
+}

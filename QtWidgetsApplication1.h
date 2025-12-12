@@ -15,5 +15,8 @@ public:
 
 private:
     Ui::QtWidgetsApplication1Class ui;
+
+public slots:
+	void getGraphTemperature();
 };
 
