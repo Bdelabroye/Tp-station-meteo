@@ -29,7 +29,7 @@ void BDD::connectToDB()
 		db.setUserName("temp");
 		db.setPassword("Dt7M7CWn/32@LOxg");
 		if (!db.open()) {
-			//erreur de connexion
+			qDebug() << "Database not open";
 		}
 	}
 }
